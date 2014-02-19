@@ -1,6 +1,6 @@
 -- Prefered applications
 
-terminal = "urxvtc"
+terminal = "urxvt"
 terminal_cmd = terminal .. " -e "
 
 editor            = "scripts/launch-editor "
@@ -15,9 +15,9 @@ messenger         = "scripts/launch-messenger "
 calendar          = "gsimplecal"
 calculator        = "xcalc"
 
-audiomute    = "amixer -q set PCM,0 playback toggle"
-audiovolup   = "amixer -q set PCM,0 5%+"
-audiovoldown = "amixer -q set PCM,0 5%-"
+audiomute    = "amixer -q set Master,0 playback toggle"
+audiovolup   = "amixer -q set Master,0 5%+"
+audiovoldown = "amixer -q set Master,0 5%-"
 
 audioplayer    = terminal .. " -name mocp -geometry 105x40 -e mocp"
 audioplay      = "mocp -p"

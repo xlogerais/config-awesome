@@ -1,23 +1,26 @@
 -- Standard lua library
 --require("socket")
 
+
+gears = require("gears")
+
+-- Widget and layout library
+wibox = require("wibox")
+
 -- Standard awesome library
-require("awful")
-require("awful.rules")
+awful = require("awful")
+awful.rules = require("awful.rules")
 require("awful.autofocus")
 require("awful.remote")
-require("awful.tooltip")
+--require("awful.tooltip")
 -- 
 -- Theme handling library
-require("beautiful")
+beautiful = require("beautiful")
 require("beautiful-settings")
 --
 -- Notification library
-require("naughty")
-require("naughty-settings")
-
--- Revelation library
-require("revelation")
+naugthy = require("naughty")
+--require("naughty-settings")
 
 -- Default modkey.
 altkey = "Mod1"
@@ -27,7 +30,8 @@ modkey = "Mod4"
 os.setlocale("fr_FR.utf8")
 
 -- Define if we want to use titlebar on all applications.
-use_titlebar = false
+--use_titlebar = true
+titlebars_enabled=true
 
 -- Layouts
 require("layouts")
@@ -35,14 +39,11 @@ require("layouts")
 -- Tags
 require("tags")
 
--- Definition des applications preferees
+-- Apps
 require("apps")
 
---- Definition des menus
+-- Menus
 require("menus")
-
--- Dropdown terminal
-require("teardrop")
 
 -- Widgets
 require("widget-layoutbox")
@@ -53,47 +54,67 @@ require("widget-menulauncher")
 require("widget-systray")
 require("widget-spacer")
 require("widget-clock")
---require("widget-battery")
+require("widget-battery")
 --require("widget-todo")
 --require("widget-remind")
-require("widget-screen")
-require("widget-kblayout")
+--require("widget-screen")
+--require("widget-kblayout")
 
 -- Wibox
 
-require("statusbar-top")
-require("statusbar-bottom")
-require("statusbar-left")
+require("wibox-top")
+require("wibox-bottom")
+--require("wibox-left")
+--require("statusbar-top")
+--require("statusbar-bottom")
+--require("statusbar-left")
 
 -- }}}
 
+
 -- {{{ Mouse bindings
-require("mouse-bindings-client")
-require("mouse-bindings-global")
+
+   -- Global
+        require("mouse-bindings-global")
+
+   -- Clients
+        require("mouse-bindings-client")
+
 -- }}}
 
 -- {{{ Key bindings
 
    -- Global
        -- Add keybindings to table
-         require("key-bindings-global")
-         require("key-bindings-tags")
-         require("key-bindings-prompts")
-         require("key-bindings-utils")
-         require("key-bindings-multimedia")
-         require("test-modal-keybinding")
+        require("key-bindings-global")
+        require("key-bindings-tags")
+        require("key-bindings-prompts")
+        require("key-bindings-utils")
+        require("key-bindings-multimedia")
+      --require("test-modal-keybinding")
        -- Bind the keys
-         root.keys(globalkeys)
+        root.keys(globalkeys)
 
    -- Clients
-       require("key-bindings-client")
+        require("key-bindings-client")
 
 -- }}}
 
 -- {{{ Rules
+
 require("rules")
+
 -- }}}
 
 -- {{{ Signals
+
 require("signals")
+
 -- }}}
+
+-- Dropdown terminal
+--require("teardrop")
+
+-- Revelation library
+--require("revelation")
+

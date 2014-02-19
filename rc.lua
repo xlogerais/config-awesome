@@ -1,8 +1,8 @@
 --stolen from http://www.markurashi.de/dotfiles/awesome/rc.lua
 -- failsafe mode
 -- if the current config fail, load the default rc.lua
-require("awful")
-require("naughty")
+local awful = require("awful")
+local naughty = require("naughty")
 
 confdir = awful.util.getdir("config")
 local rc, err = loadfile(confdir .. "/awesome.lua");
@@ -18,9 +18,17 @@ for s = 1,screen.count() do
 end
 naughty.notify
 {
-  height = 64,
-  width  = 600,
-  fg     = black,
-  bg     = red,
-  text = "Awesome crashed during startup on " .. os.date("%d/%m/%Y %T :\n") ..  err .. "\n", timeout = 0
+		preset = naughty.config.presets.critical,
+		title = "Oops, there were errors during startup!",
+		text = "Awesome crashed during startup on " .. os.date("%d/%m/%Y %T :\n") ..  err .. "\n", timeout = 0,
 }
+
+
+-- {{{ Error handling
+-- Check if awesome encountered an error during startup and fell back to
+-- another config (This code will only ever execute for the fallback config)
+if awesome.startup_errors then
+    naughty.notify({ preset = naughty.config.presets.critical,
+                     title = "Oops, there were errors during startup!",
+                     text = awesome.startup_errors })
+end

@@ -4,7 +4,9 @@
                                                                                       
 theme = {}
 
-theme.font          = "snap"
+--theme.font          = "snap"
+theme.font         = "xft:Inconsolata-20"
+theme.taglist_font = "xft:Inconsolata-24"
 
 theme.bg_urgent     = "#FF4500FF"
 theme.bg_focus      = "#FFFFFFDD"

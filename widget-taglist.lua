@@ -11,5 +11,5 @@ mytaglist.buttons = awful.util.table.join(
 
 for s = 1, screen.count() do
     -- Create a taglist widget
-    mytaglist[s] = awful.widget.taglist(s, awful.widget.taglist.label.all, mytaglist.buttons)
+    mytaglist[s] = awful.widget.taglist(s, awful.widget.taglist.filter.all, mytaglist.buttons)
 end

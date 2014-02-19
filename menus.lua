@@ -98,31 +98,35 @@ menu_power= {
 
 mymainmenu = 
 awful.menu.new(
-{ width = 125,
+{
   items =
   {
-   { "Terminal", terminal },
-   { "Web", browser },
-   { "Mails", mailer },
-   { "Messenger", messenger },
-   { "irssi", terminal .. " -name irssi -geometry 105x40 -e irssi" },
-   { "", nil },
-   { "Calendrier", calendar },
-   { "Calculatrice", calculator },
-   { "", nil },
-   { "Fichiers", "rox" },
-   { "", nil },
-   { "Volume", terminal .. " -name alsamixer -geometry 210x40 -e alsamixer" },
-   { "", nil },
-   { "Réseau", menu_network },
-   { "Multimédia", menu_media },
-   { "Bureautique", menu_office },
-   { "", nil },
-   { "Session", menu_session },
-   { "", nil },
-   { "Système", menu_power },
-   { "", nil },
-   { "Vérouiller", screenlocker },
- }
+    { "Terminal", terminal },
+    { "Web", browser },
+    { "Mails", mailer },
+    { "Messenger", messenger },
+    { "irssi", terminal .. " -name irssi -geometry 105x40 -e irssi" },
+    { "", nil },
+    { "Calendrier", calendar },
+    { "Calculatrice", calculator },
+    { "", nil },
+    { "Fichiers", "rox" },
+    { "", nil },
+    { "Volume", terminal .. " -name alsamixer -geometry 210x40 -e alsamixer" },
+    { "", nil },
+    { "Réseau", menu_network },
+    { "Multimédia", menu_media },
+    { "Bureautique", menu_office },
+    { "", nil },
+    { "Session", menu_session },
+    { "", nil },
+    { "Système", menu_power },
+    { "", nil },
+    { "Vérouiller", screenlocker },
+  },
+  theme = 
+  {
+    width = 200,
+  }
 })
 

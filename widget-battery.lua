@@ -1,10 +1,12 @@
 -- Create a textbox widget for the battery widget
-mybatterywidget = widget({ type = "textbox", align = "left" , text = "Battery status" })
+mybatterywidget = wibox.widget.textbox()
+mybatterywidget:set_align("left")
+mybatterywidget:set_text(" Battery status ")
 
  function batteryInfo(adapter)
      spacer = " "
-     local fcur = io.open("/sys/class/power_supply/"..adapter.."/charge_now")    
-     local fcap = io.open("/sys/class/power_supply/"..adapter.."/charge_full")
+     local fcur = io.open("/sys/class/power_supply/"..adapter.."/energy_now")    
+     local fcap = io.open("/sys/class/power_supply/"..adapter.."/energy_full")
      local fsta = io.open("/sys/class/power_supply/"..adapter.."/status")
      local cur = fcur:read()
      local cap = fcap:read()
@@ -35,13 +37,14 @@ mybatterywidget = widget({ type = "textbox", align = "left" , text = "Battery st
          dir = "="
          battery = "A/C"
      end
-     mybatterywidget.text = spacer.."Bat:"..spacer..dir..battery..dir..spacer
+     --mybatterywidget.text = spacer.."Bat:"..spacer..dir..battery..dir..spacer
+	 mybatterywidget:set_text(spacer .. "Bat:" .. spacer ..dir..battery..dir..spacer)
      fcur:close()
      fcap:close()
      fsta:close()
  end
 
 -- Timer --
-awful.hooks.timer.register(20, function()
-     batteryInfo("C1ED")
- end)
+mybatterytimer = timer({ timeout = 30 })
+mybatterytimer:connect_signal("timeout", function() batteryInfo('BAT0') end )
+mybatterytimer:start()

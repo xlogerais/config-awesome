@@ -1,3 +1,4 @@
 -- Create a spacer widget
-myspacer = widget({type = "textbox" , align = "center" })
-myspacer.text = " | "
+
+myspacer = wibox.widget.textbox()
+myspacer:set_text(" | ")
