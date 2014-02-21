@@ -32,7 +32,7 @@ awful.rules.rules =
     { rule = { class = "XTerm"           }, properties = { tag = tags[1][1] , switchtotag = true } },
     { rule = { class = "UXTerm"          }, properties = { tag = tags[1][1] , switchtotag = true } },
     { rule = { class = "Rxvt"            }, properties = { tag = tags[1][1] , switchtotag = true } },
-    { rule = { class = "URxvt", instance = "urxvt" }, properties = { tag = tags[1][1] , switchtotag = true } },
+    { rule = { class = "URxvt", instance = "urxvt" }, properties = { tag = tags[1][1] , switchtotag = true }, callback = awful.client.setslave },
 
     -- Specific terminals
     { rule = { instance = "dropdown"     }, properties = { floating = true , sticky = true } },
