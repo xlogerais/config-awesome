@@ -1,7 +1,6 @@
 -- Standard lua library
 --require("socket")
 
-
 gears = require("gears")
 
 -- Widget and layout library
@@ -13,11 +12,11 @@ awful.rules = require("awful.rules")
 require("awful.autofocus")
 require("awful.remote")
 --require("awful.tooltip")
--- 
+
 -- Theme handling library
 beautiful = require("beautiful")
 require("beautiful-settings")
---
+
 -- Notification library
 naugthy = require("naughty")
 --require("naughty-settings")
@@ -65,9 +64,6 @@ require("widget-battery")
 require("wibox-top")
 require("wibox-bottom")
 --require("wibox-left")
---require("statusbar-top")
---require("statusbar-bottom")
---require("statusbar-left")
 
 -- }}}
 
