@@ -21,6 +21,10 @@ require("beautiful-settings")
 naugthy = require("naughty")
 --require("naughty-settings")
 
+-- Widget library
+vicious = require("vicious")
+require("vicious-settings")
+
 -- Default modkey.
 altkey = "Mod1"
 modkey = "Mod4"

@@ -5,7 +5,7 @@ mybatterywidget:set_text(" Battery status ")
 
  function batteryInfo(adapter)
      spacer = " "
-     local fcur = io.open("/sys/class/power_supply/"..adapter.."/energy_now")    
+     local fcur = io.open("/sys/class/power_supply/"..adapter.."/energy_now")
      local fcap = io.open("/sys/class/power_supply/"..adapter.."/energy_full")
      local fsta = io.open("/sys/class/power_supply/"..adapter.."/status")
      local cur = fcur:read()
@@ -37,8 +37,7 @@ mybatterywidget:set_text(" Battery status ")
          dir = "="
          battery = "A/C"
      end
-     --mybatterywidget.text = spacer.."Bat:"..spacer..dir..battery..dir..spacer
-	 mybatterywidget:set_text(spacer .. "Bat:" .. spacer ..dir..battery..dir..spacer)
+	 mybatterywidget:set_text(spacer .. "Batterie :" .. spacer ..dir..battery..dir..spacer)
      fcur:close()
      fcap:close()
      fsta:close()
