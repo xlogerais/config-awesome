@@ -13,12 +13,18 @@ for s = 1, screen.count() do
     if s == screen.count() then
 			right_layout:add(myspacer)
 			right_layout:add(cpuwidget)
-			right_layout:add(cpugraphwidget)
+			right_layout:add(cpubarwidget)
+			--right_layout:add(cpugraphwidget)
+
 			right_layout:add(myspacer)
 			right_layout:add(memwidget)
-			right_layout:add(memgraphwidget)
+			right_layout:add(membarwidget)
+
 			right_layout:add(myspacer)
-			right_layout:add(mybatterywidget)
+			right_layout:add(batwidget)
+			right_layout:add(batbarwidget)
+			--right_layout:add(mybatterywidget)
+
 			right_layout:add(myspacer)
 			right_layout:add(mysystray)
 	end
