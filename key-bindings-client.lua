@@ -1,17 +1,17 @@
 -- Define key graber function for resizing clients
 
---function resize(c) 
---keygrabber.run(function(mod, key, event) 
---    if event == "release" then return true end 
+--function resize(c)
+--keygrabber.run(function(mod, key, event)
+--    if event == "release" then return true end
 --
---    if     key == 'Up' then awful.client.moveresize(0, 0, 0, 5, c) 
---    elseif key == 'Down' then awful.client.moveresize(0, 0, 0, -5, c) 
---    elseif key == 'Right' then awful.client.moveresize(0, 0, 5, 0, c) 
---    elseif key == 'Left' then awful.client.moveresize(0, 0, -5, 0, c) 
---    else   keygrabber.stop() 
---    end 
+--    if     key == 'Up' then awful.client.moveresize(0, 0, 0, 5, c)
+--    elseif key == 'Down' then awful.client.moveresize(0, 0, 0, -5, c)
+--    elseif key == 'Right' then awful.client.moveresize(0, 0, 5, 0, c)
+--    elseif key == 'Left' then awful.client.moveresize(0, 0, -5, 0, c)
+--    else   keygrabber.stop()
+--    end
 --
---    return true 
+--    return true
 --end)
 --
 --clientkeys = awful.util.table.join( awful.key({ "Shift","Control" }, "r", function(c) resize(c) end ) )
@@ -41,11 +41,6 @@ clientkeys = awful.util.table.join(
     awful.key({ modkey, "Control" }, "Return", function (c) c:swap(awful.client.getmaster()) end),
     awful.key({ modkey,           }, "o",      awful.client.movetoscreen                        ),
     awful.key({ modkey, "Shift"   }, "r",      function (c) c:redraw()                       end),
-    awful.key({ modkey, "Control" }, "t",      function (c)
-                                                            if c.titlebar
-                                                            then awful.titlebar.remove(c)
-                                                            else awful.titlebar.add(c, { modkey = modkey })
-                                                            end
-                                               end),
+    awful.key({ modkey, "Control" }, "t",      function (c) awful.titlebar.toggle(c)         end),
     awful.key({ modkey, "Shift"   }, "c",      function (c) c:kill()                         end)
 )
