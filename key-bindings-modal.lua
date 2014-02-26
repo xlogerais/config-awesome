@@ -15,7 +15,7 @@ globalkeys = awful.util.table.join(globalkeys,
           keygrabber.stop()
           naughty.destroy(keygrabber_popup)
           mypowermenu = awful.menu({width=1280,items = menu_power})
-          mypowermenu:show({keygrabber=true,coords={x=0, y=48}}) 
+          mypowermenu:show({keygrabber=true,coords={x=0, y=48}})
             --awful.menu.menu_keys.down = { "Down", "Alt_L" }
             --awful.menu.menu_keys.exec = { "Right", "Return" }
             --local cmenu = awful.menu.new({width=400}, { keygrabber=false, coords={x=440, y=330} , items = menu_power })
@@ -24,7 +24,7 @@ globalkeys = awful.util.table.join(globalkeys,
           naughty.destroy(keygrabber_popup)
         end
 
-        return true 
+        return true
         end)
 
  end)

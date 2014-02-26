@@ -92,7 +92,7 @@ require("wibox-bottom")
         require("key-bindings-prompts")
         require("key-bindings-utils")
         require("key-bindings-multimedia")
-        require("test-modal-keybinding")
+        require("key-bindings-modal")
        -- Bind the keys
         root.keys(globalkeys)
 
