@@ -18,12 +18,8 @@ beautiful = require("beautiful")
 require("beautiful-settings")
 
 -- Notification library
-naugthy = require("naughty")
+naughty = require("naughty")
 --require("naughty-settings")
-
--- Widget library
-vicious = require("vicious")
-require("vicious-settings")
 
 -- Default modkey.
 altkey = "Mod1"
@@ -48,7 +44,14 @@ require("apps")
 -- Menus
 require("menus")
 
--- Widgets
+-- Revelation
+require("revelation")
+
+-- Vicious widgets
+vicious = require("vicious")
+require("vicious-settings")
+
+-- Custom widgets
 require("widget-layoutbox")
 require("widget-taglist")
 require("widget-tasklist")
@@ -68,8 +71,6 @@ require("widget-battery")
 require("wibox-top")
 require("wibox-bottom")
 --require("wibox-left")
-
--- }}}
 
 
 -- {{{ Mouse bindings
@@ -91,7 +92,7 @@ require("wibox-bottom")
         require("key-bindings-prompts")
         require("key-bindings-utils")
         require("key-bindings-multimedia")
-      --require("test-modal-keybinding")
+        require("test-modal-keybinding")
        -- Bind the keys
         root.keys(globalkeys)
 
@@ -113,8 +114,4 @@ require("signals")
 -- }}}
 
 -- Dropdown terminal
---require("teardrop")
-
--- Revelation library
---require("revelation")
-
+require("teardrop")
