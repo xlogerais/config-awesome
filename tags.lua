@@ -14,7 +14,7 @@ tags = {
 for s = 1, screen.count() do
     awful.tag.setnmaster(1,tags[s][1])
     awful.tag.setncol(1,tags[s][1])
-    awful.tag.setmwfact(0.6,tags[s][1])
+    awful.tag.setmwfact(0.5,tags[s][1])
 end
 
 -- Customize "communication" tag

@@ -1,17 +1,17 @@
 -- Define key graber function for resizing clients
 
---function resize(c) 
---keygrabber.run(function(mod, key, event) 
---    if event == "release" then return true end 
+--function resize(c)
+--keygrabber.run(function(mod, key, event)
+--    if event == "release" then return true end
 --
---    if     key == 'Up' then awful.client.moveresize(0, 0, 0, 5, c) 
---    elseif key == 'Down' then awful.client.moveresize(0, 0, 0, -5, c) 
---    elseif key == 'Right' then awful.client.moveresize(0, 0, 5, 0, c) 
---    elseif key == 'Left' then awful.client.moveresize(0, 0, -5, 0, c) 
---    else   keygrabber.stop() 
---    end 
+--    if     key == 'Up' then awful.client.moveresize(0, 0, 0, 5, c)
+--    elseif key == 'Down' then awful.client.moveresize(0, 0, 0, -5, c)
+--    elseif key == 'Right' then awful.client.moveresize(0, 0, 5, 0, c)
+--    elseif key == 'Left' then awful.client.moveresize(0, 0, -5, 0, c)
+--    else   keygrabber.stop()
+--    end
 --
---    return true 
+--    return true
 --end)
 --
 --clientkeys = awful.util.table.join( awful.key({ "Shift","Control" }, "r", function(c) resize(c) end ) )
