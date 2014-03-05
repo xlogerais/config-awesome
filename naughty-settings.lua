@@ -4,9 +4,9 @@ local naughty_settings =
 { screen = screen.count() ,
   position = "bottom_right",
   timeout = 15,
-  height = 48,
-  width = 300,
-  font = beautiful.font or "Verdana 8",
+  height = 50,
+  width = 500,
+  font = beautiful.font or "DejaVu Sans 16",
   fg = beautiful.fg_normal or "#999999AA",
   bg = beautiful.bg_normal or "#000000AA",
 }

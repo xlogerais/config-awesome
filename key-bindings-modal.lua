@@ -89,7 +89,7 @@ client_mode = {
  -- trigger client mode on Mod4 + alt + c
 clientkeys = awful.util.table.join(clientkeys,
  awful.key({ modkey,altkey }, "c", function(c)
-	keygrabber_popup = naughty.notify({ position = "bottom_right", width = 550, height = 800, timeout = 0, title = "<big>Keygrabber</big>", text = "Client" })
+	keygrabber_popup = naughty.notify({ position = "bottom_right", width = 550, height = 800, timeout = 0, title = "<big>Client Keygrabber</big>", text = "Client" })
 	keygrabber.run(function(mod, key, event)
          if event == "release" then return true end
          naughty.destroy(keygrabber_popup)

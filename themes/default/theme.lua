@@ -5,7 +5,7 @@
 theme = {}
 
 --theme.font          = "snap"
-theme.font          = "FreeSans 8"
+theme.font          = "DejaVu Sans 16"
 
 theme.fg_focus      = "#00000099"
 theme.bg_focus      = "#AAAAAA99"
@@ -44,8 +44,8 @@ theme.tasklist_floating_icon = "/usr/share/awesome/themes/default/tasklist/float
 -- menu_[bg|fg]_[normal|focus]
 -- menu_[border_color|border_width]
 theme.menu_submenu_icon = "/usr/share/awesome/themes/default/submenu.png"
-theme.menu_height   = "15"
-theme.menu_width    = "100"
+theme.menu_height   = "30"
+theme.menu_width    = "600"
 theme.menu_bg_normal = "#FFFFFFAA"
 theme.menu_bg_focus  = "#0099FFAA"
 theme.menu_fg_normal = "#000000AA"

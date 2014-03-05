@@ -133,6 +133,7 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey,           }, "u", awful.client.urgent.jumpto),
 
     -- Menus
+    awful.key({ modkey, "Control" }, "m",           function() menubar.show() end ),
     awful.key({ modkey,           }, "twosuperior", function () mymainmenu:show({keygrabber=true}) end),
    
     -- Launch standard programs

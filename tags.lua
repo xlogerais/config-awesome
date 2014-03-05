@@ -1,13 +1,13 @@
 -- Defines the tags
 
 tags = {
-  names  = { "terms",    "web",       "mail",      "communication", "bureautique", "multimédia", "perso",     "autres"   },
-  layout = { layouts[2], layouts[10], layouts[2], layouts[2],      layouts[12],   layouts[1],   layouts[10], layouts[1] }
+  names   = { " terms "," web "," mail "," communication "," bureautique "," multimédia "," perso "," autres " },
+  layouts = { layouts[2], layouts[10], layouts[2], layouts[2], layouts[12], layouts[1], layouts[10], layouts[1] }
 }
 
 -- Creates the tags
  for s = 1, screen.count() do
-     tags[s] = awful.tag(tags.names, s, tags.layout)
+     tags[s] = awful.tag(tags.names, s, tags.layouts)
  end
 
 -- Customize "terms" tag
