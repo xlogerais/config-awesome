@@ -5,7 +5,8 @@
 theme = {}
 
 --theme.font          = "snap"
-theme.font          = "FreeSans 8"
+--theme.font          = "FreeSans 8"
+theme.font          = "DejaVu Sans 8"
 
 theme.fg_focus      = "#00000099"
 theme.bg_focus      = "#AAAAAA99"
