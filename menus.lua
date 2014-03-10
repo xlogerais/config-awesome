@@ -23,6 +23,7 @@ menu_communication = {
 menu_office = {
    { "Rox", "rox" },
    { "OpenOffice", "soffice" },
+   { "LibreOffice", "libreoffice" },
    { "The Gimp", "gimp" }
 }
 
