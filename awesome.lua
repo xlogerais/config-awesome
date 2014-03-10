@@ -1,8 +1,6 @@
 -- Standard lua library
 --require("socket")
 
-gears = require("gears")
-
 -- Widget and layout library
 wibox = require("wibox")
 
@@ -20,6 +18,9 @@ require("beautiful-settings")
 -- Notification library
 naughty = require("naughty")
 --require("naughty-settings")
+
+gears = require("gears")
+menubar = require('menubar')
 
 -- Default modkey.
 altkey = "Mod1"

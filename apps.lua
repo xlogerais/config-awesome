@@ -26,4 +26,4 @@ audiostop      = "mocp -s"
 audioprev      = "mocp -r"
 audionext      = "mocp -f"
 
-screenlocker = "i3lock -c 000000"
+screenlocker = "i3lock -c 000000 -i .lockscreen"
