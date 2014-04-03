@@ -1,6 +1,6 @@
 -- Prefered applications
 
-terminal = "urxvt"
+terminal = "urxvtc"
 terminal_cmd = terminal .. " -e "
 
 editor            = "scripts/launch-editor "
