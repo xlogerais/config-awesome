@@ -20,11 +20,13 @@ naughty = require("naughty")
 --require("naughty-settings")
 
 gears = require("gears")
+
 menubar = require('menubar')
 
 -- Default modkey.
 altkey = "Mod1"
 modkey = "Mod4"
+menukey = "Menu"
 
 -- Default locale
 os.setlocale("fr_FR.utf8")
@@ -44,9 +46,6 @@ require("apps")
 
 -- Menus
 require("menus")
-
--- Revelation
-require("revelation")
 
 -- Vicious widgets
 vicious = require("vicious")
@@ -116,3 +115,7 @@ require("signals")
 
 -- Dropdown terminal
 require("teardrop")
+
+-- Revelation
+require("revelation")
+
