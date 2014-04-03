@@ -79,7 +79,8 @@ awful.rules.rules =
     { rule = { class    = "Linphone-3"                    }, properties = { tag = tags[screen.count()][4] , switchtotag = true  } },
 
     -- Tools
-    { rule = { class    = "Virt-manager"                  }, properties = { tag = tags[screen.count()][8] , switchtotag = true  , floating = true } },
+    { rule = { class    = "Virt-manager"                  }, properties = { tag = tags[screen.count()][8] , switchtotag = true , floating = true } },
+    { rule = { class    = "Virt-viewer"                   }, properties = { tag = tags[screen.count()][8] , switchtotag = true , floating = true } },
 
     -- Test unagi
     { rule = { class = "URxvt" }, properties = { opacity = 0.8 } },
