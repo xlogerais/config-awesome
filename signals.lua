@@ -70,11 +70,15 @@ end)
 client.connect_signal("focus", function(c)
 	c.border_color = beautiful.border_focus
 	c.opacity = 1
+	c.above = true
 end)
 
 client.connect_signal("unfocus", function(c)
+	c.maximized_horizontal = false
+	c.maximized_vertical = false
 	c.border_color = beautiful.border_normal
 	c.opacity = 0.7
+	c.above = false
 end)
 
 -- Arrange signal handler
