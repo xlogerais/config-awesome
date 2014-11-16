@@ -47,15 +47,15 @@ awful.rules.rules =
     { rule = { instance = "shinken"      }, properties = { floating = true , below = true , sticky = false }, callback = awful.client.lower  },
 
     -- Browsers
-    { rule = { role     = "browser"      }, properties = { tag = tags[screen.count()][2] , switchtotag = true } },
-    { rule = { class    = "Firefox"      }, properties = { tag = tags[screen.count()][2] , switchtotag = true } },
-    { rule = { class    = "Iceweasel"    }, properties = { tag = tags[screen.count()][2] , switchtotag = true } },
-    { rule = { class    = "Namoroka"     }, properties = { tag = tags[screen.count()][2] , switchtotag = true } },
-    { rule = { class    = "Chrome"       }, properties = { tag = tags[screen.count()][2] , switchtotag = true } },
-    { rule = { class    = "Chromium"     }, properties = { tag = tags[screen.count()][2] , switchtotag = true } },
-    { rule = { class    = "luakit"       }, properties = { tag = tags[screen.count()][2] , switchtotag = true } },
-    { rule = { class    = "Uzbl"         }, properties = { tag = tags[screen.count()][2] , switchtotag = true } },
-    { rule = { class    = "Midori"       }, properties = { tag = tags[screen.count()][2] , switchtotag = true } },
+    { rule = { role     = "browser"      }, properties = { tag = tags[1][2] , switchtotag = true } },
+    { rule = { class    = "Firefox"      }, properties = { tag = tags[1][2] , switchtotag = true } },
+    { rule = { class    = "Iceweasel"    }, properties = { tag = tags[1][2] , switchtotag = true } },
+    { rule = { class    = "Chrome"       }, properties = { tag = tags[1][2] , switchtotag = true } },
+    { rule = { class    = "Chromium"     }, properties = { tag = tags[1][2] , switchtotag = true } },
+    { rule = { class    = "luakit"       }, properties = { tag = tags[1][2] , switchtotag = true } },
+    { rule = { class    = "Uzbl"         }, properties = { tag = tags[1][2] , switchtotag = true } },
+    { rule = { class    = "Midori"       }, properties = { tag = tags[1][2] , switchtotag = true } },
+    { rule = { class    = "Vimprobable"  }, properties = { tag = tags[1][2] , switchtotag = true } },
 
     -- Office apps
     { rule = { class    = "Acroread"                      }, properties = { tag = tags[screen.count()][5] , switchtotag = true } },
@@ -68,6 +68,7 @@ awful.rules.rules =
     -- Multimedia apps
     { rule = { class = "MPlayer"                          }, properties = { tag = tags[screen.count()][6] , floating = true , sticky = true } },
     { rule = { class = "Vlc"                              }, properties = { tag = tags[screen.count()][6] , floating = true , sticky = true } },
+    { rule = { class = "mpv"                              }, properties = { tag = tags[screen.count()][6] , floating = true , sticky = true } },
 
     -- Communication apps
     { rule = { class    = "Pidgin", role = "buddy_list"   }, properties = { tag = tags[screen.count()][4] , switchtotag = false }, callback = awful.client.setmaster },

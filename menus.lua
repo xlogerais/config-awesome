@@ -71,13 +71,6 @@ menu_tv = {
    { "No Life",  "tv nolife"    },
 }
 
-
-menu_network = {
-   { "Web", menu_web },
-   { "Mail", menu_mail },
-   { "Communication", menu_communication },
-}
-
 menu_media = {
    { "Musique", menu_audio },
    { "Vidéo", menu_video },
@@ -104,8 +97,8 @@ awful.menu.new(
     { "Terminal", terminal },
     { "Web", browser },
     { "Mails", mailer },
-    { "Messenger", messenger },
-    { "irssi", terminal .. " -name irssi -geometry 105x40 -e irssi" },
+    { "Pidgin", messenger },
+    { "Irssi", terminal .. " -name irssi -geometry 105x40 -e irssi" },
     { "", nil },
     { "Calendrier", calendar },
     { "Calculatrice", calculator },
@@ -114,9 +107,11 @@ awful.menu.new(
     { "", nil },
     { "Volume", terminal .. " -name alsamixer -geometry 210x40 -e alsamixer" },
     { "", nil },
-    { "Réseau", menu_network },
-    { "Multimédia", menu_media },
     { "Bureautique", menu_office },
+    { "Web", menu_web },
+    { "Mail", menu_mail },
+    { "Communication", menu_communication },
+    { "Multimédia", menu_media },
     { "", nil },
     { "Session", menu_session },
     { "", nil },
