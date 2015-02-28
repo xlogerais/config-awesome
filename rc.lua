@@ -12,17 +12,18 @@ if rc then
         return;
     end
 end
+
 dofile("/etc/xdg/awesome/rc.lua");
 for s = 1,screen.count() do
     mypromptbox[s].text = awful.util.escape(err:match("[^\n]*"));
 end
+
 naughty.notify
 {
 		preset = naughty.config.presets.critical,
 		title = "Oops, there were errors during startup!",
 		text = "Awesome crashed during startup on " .. os.date("%d/%m/%Y %T :\n") ..  err .. "\n", timeout = 0,
 }
-
 
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to

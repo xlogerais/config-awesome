@@ -1,0 +1,1 @@
+/home/xavier/.config/awesome/themes/new/carbon/theme.lua

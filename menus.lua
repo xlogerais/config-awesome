@@ -89,6 +89,37 @@ menu_power= {
    { "Eteindre",   "sudo poweroff" },
 }
 
+--
+-- Themes
+--
+function generate_theme_menu(path)
+  -- For each dir in path array
+  for index,dir in next,path do
+    -- List your theme files and feed the menu table
+    local f = io.popen("ls -1 " .. dir)
+
+    for l in f:lines() do
+      local item = { l .. '(' .. dir .. ')' , function () load_theme(dir .. "/" .. l .. "/theme.lua" ) end }
+      table.insert(menu_themes, item)
+    end
+    f:close()
+  end
+end
+
+function load_theme(theme)
+  local cfg_path = awful.util.getdir("config")
+  -- Create a symlink from the given theme to /home/user/.config/awesome/theme.lua
+  awful.util.spawn("ln -sfn " .. theme .. " " .. cfg_path .. "/theme.lua")
+  awesome.restart()
+end
+
+menu_themes = {}
+themes_path = { "/usr/share/awesome/themes/", awful.util.getdir("config") .. "/themes/new" }
+generate_theme_menu(themes_path)
+
+--
+-- Main menu
+--
 mymainmenu = 
 awful.menu.new(
 {
@@ -115,13 +146,16 @@ awful.menu.new(
     { "", nil },
     { "Session", menu_session },
     { "", nil },
+    { "Thèmes", menu_themes },
+    { "", nil },
     { "Système", menu_power },
     { "", nil },
     { "Vérouiller", screenlocker },
   },
   theme = 
   {
-    width = 200,
+    width  = beautiful.menu_width,
+    height = beautiful.menu_height,
   }
 })
 

@@ -1,29 +1,38 @@
--- Standard lua library
+--
+-- Standard lua libraries
+
 --require("socket")
 
+--
+-- Standard awesome libraries
+--
+
 gears = require("gears")
+
+awful = require("awful")
+awful.rules = require("awful.rules")
+require("awful.autofocus")
+require("awful.tooltip")
+require("awful.remote")
 
 -- Widget and layout library
 wibox = require("wibox")
 
--- Standard awesome library
-awful = require("awful")
-awful.rules = require("awful.rules")
-require("awful.autofocus")
-require("awful.remote")
---require("awful.tooltip")
-
 -- Theme handling library
 beautiful = require("beautiful")
-require("beautiful-settings")
+require("settings-beautiful")
 
 -- Notification library
-naugthy = require("naughty")
---require("naughty-settings")
+naughty = require("naughty")
+require("settings-naughty")
 
--- Widget library
+--
+-- Other libraries from community
+--
+
+-- Vicious
 vicious = require("vicious")
-require("vicious-settings")
+require("settings-vicious")
 
 -- Default modkey.
 altkey = "Mod1"
@@ -57,7 +66,7 @@ require("widget-menulauncher")
 require("widget-systray")
 require("widget-spacer")
 require("widget-clock")
-require("widget-battery")
+--require("widget-battery")
 --require("widget-todo")
 --require("widget-remind")
 --require("widget-screen")
@@ -91,7 +100,7 @@ require("wibox-bottom")
         require("key-bindings-prompts")
         require("key-bindings-utils")
         require("key-bindings-multimedia")
-      --require("test-modal-keybinding")
+        require("key-bindings-modal")
        -- Bind the keys
         root.keys(globalkeys)
 
@@ -113,8 +122,8 @@ require("signals")
 -- }}}
 
 -- Dropdown terminal
---require("teardrop")
+require("teardrop")
 
 -- Revelation library
---require("revelation")
+require("revelation")
 
