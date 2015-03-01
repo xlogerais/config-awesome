@@ -25,11 +25,7 @@ clientkeys = awful.util.table.join(
             c.minimized = true
         end),
 
-    awful.key({ modkey,           }, "m",
-                                               function (c)
-                                                            c.maximized_horizontal = not c.maximized_horizontal
-                                                            c.maximized_vertical   = not c.maximized_vertical
-                                               end),
+    awful.key({ modkey,           }, "m",      function (c) c.maximized = not c.maximized    end),
     awful.key({ modkey,           }, "f",      function (c) c.fullscreen = not c.fullscreen  end),
     awful.key({ modkey,           }, "t",      function (c) c.ontop = not c.ontop            end),
     awful.key({ modkey,           }, "y",      function (c) c.sticky = not c.sticky          end),

@@ -1,13 +1,6 @@
 -- {{{ Signals
 -- Signal function to execute when a new client appears.
 client.connect_signal("manage", function (c, startup)
-    -- Enable sloppy focus
-    c:connect_signal("mouse::enter", function(c)
-        if awful.layout.get(c.screen) ~= awful.layout.suit.magnifier
-            and awful.client.focus.filter(c) then
-            client.focus = c
-        end
-    end)
 
     if not startup then
         -- Set the windows at the slave,
@@ -21,7 +14,6 @@ client.connect_signal("manage", function (c, startup)
         end
     end
 
-    --local titlebars_enabled = false
     if titlebars_enabled and (c.type == "normal" or c.type == "dialog") then
         -- buttons for the titlebar
         local buttons = awful.util.table.join(
@@ -42,6 +34,13 @@ client.connect_signal("manage", function (c, startup)
         left_layout:add(awful.titlebar.widget.iconwidget(c))
         left_layout:buttons(buttons)
 
+        -- The title goes in the middle
+        local middle_layout = wibox.layout.flex.horizontal()
+        local title = awful.titlebar.widget.titlewidget(c)
+        title:set_align("center")
+        middle_layout:add(title)
+        middle_layout:buttons(buttons)
+
         -- Widgets that are aligned to the right
         local right_layout = wibox.layout.fixed.horizontal()
         right_layout:add(awful.titlebar.widget.floatingbutton(c))
@@ -50,31 +49,40 @@ client.connect_signal("manage", function (c, startup)
         right_layout:add(awful.titlebar.widget.ontopbutton(c))
         right_layout:add(awful.titlebar.widget.closebutton(c))
 
-        -- The title goes in the middle
-        local middle_layout = wibox.layout.flex.horizontal()
-        local title = awful.titlebar.widget.titlewidget(c)
-        title:set_align("center")
-        middle_layout:add(title)
-        middle_layout:buttons(buttons)
-
         -- Now bring it all together
         local layout = wibox.layout.align.horizontal()
         layout:set_left(left_layout)
-        layout:set_right(right_layout)
         layout:set_middle(middle_layout)
+        layout:set_right(right_layout)
 
-        awful.titlebar(c):set_widget(layout)
+       awful.titlebar(c):set_widget(layout)
     end
-end)
 
-client.connect_signal("focus", function(c)
-	c.border_color = beautiful.border_focus
-	c.opacity = 1
-end)
+    c:connect_signal("focus", function(c)
+      c.border_width = beautiful.border_width+2
+      c.border_color = beautiful.border_focus
+      c.opacity = 1
+    end)
 
-client.connect_signal("unfocus", function(c)
-	c.border_color = beautiful.border_normal
-	c.opacity = 0.7
+    c:connect_signal("unfocus", function(c)
+      c.border_width = beautiful.border_width
+      c.border_color = beautiful.border_normal
+      c.opacity = 0.7
+      -- Fullscreen clients loose fullscreen when they loose focus
+      if c.fullscreen then c.fullscreen = false end
+      -- Maximized clients are unmaximized when they loose focus
+      if c.maximized then c.maximized = false end
+    end)
+
+    -- Enable sloppy focus
+    c:connect_signal("mouse::enter", function(c)
+      if awful.layout.get(c.screen) ~= awful.layout.suit.magnifier
+        and awful.client.focus.filter(c) then
+        client.focus = c
+      end
+    end)
+
+
 end)
 
 -- Arrange signal handler
@@ -90,7 +98,7 @@ for s = 1, screen.count() do screen[s]:connect_signal("arrange", function ()
     end
 
     for _, c in pairs(clients) do -- Maximized are always on top
-        if awful.client.property.get(c,maximized_horizontal)
+        if awful.client.property.get(c,maximized)
         then if not c.fullscreen then c.above       =  true  end
         else                          c.above       =  false end
     end

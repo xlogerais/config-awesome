@@ -2,11 +2,12 @@ awful.rules.rules =
 {
     -- All clients will match this rule.
     { rule = { },
-      properties = { border_width = beautiful.border_width,
-                     border_color = beautiful.border_normal,
-                     focus = true,
+      properties = {
                      keys = clientkeys,
                      buttons = clientbuttons,
+                     focus = true,
+                     border_width = beautiful.border_width+2,
+                     border_color = beautiful.border_focus,
                      size_hints_honor = true,
                    }
     },
@@ -29,10 +30,10 @@ awful.rules.rules =
     { rule = { class    = "Wicd"         }, properties = { floating = true } },
 
     -- Terminals
-    { rule = { class = "XTerm"           }, properties = { tag = tags[1][1] , switchtotag = true } },
-    { rule = { class = "UXTerm"          }, properties = { tag = tags[1][1] , switchtotag = true } },
-    { rule = { class = "Rxvt"            }, properties = { tag = tags[1][1] , switchtotag = true } },
-    { rule = { class = "URxvt", instance = "urxvt" }, properties = { tag = tags[1][1] , switchtotag = true }, callback = awful.client.setslave },
+    { rule = { class = "XTerm"                            }, properties = { tag = tags[1][1] , switchtotag = true } },
+    { rule = { class = "UXTerm"                           }, properties = { tag = tags[1][1] , switchtotag = true } },
+    { rule = { class = "Rxvt"                             }, properties = { tag = tags[1][1] , switchtotag = true } },
+    { rule = { class = "URxvt", instance = "urxvt"        }, properties = { tag = tags[1][1] , switchtotag = true } },
 
     -- Specific terminals
     --{ rule = { instance = "dropdown"     }, properties = { floating = true , sticky = true } },
@@ -43,8 +44,6 @@ awful.rules.rules =
 
     -- Desktop tools
     { rule = { class    = "XNots"        }, properties = { floating = true } },
-    { rule = { class    = "InputOutput"  }, properties = { floating = true , below = true , sticky = false }, callback = awful.client.lower  },
-    { rule = { instance = "shinken"      }, properties = { floating = true , below = true , sticky = false }, callback = awful.client.lower  },
 
     -- Browsers
     { rule = { role     = "browser"      }, properties = { tag = tags[1][2] , switchtotag = true } },
