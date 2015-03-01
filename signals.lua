@@ -82,7 +82,6 @@ client.connect_signal("manage", function (c, startup)
       end
     end)
 
-
 end)
 
 -- Arrange signal handler

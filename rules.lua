@@ -6,6 +6,7 @@ awful.rules.rules =
                      keys = clientkeys,
                      buttons = clientbuttons,
                      focus = true,
+                     opacity = 1,
                      border_width = beautiful.border_width+2,
                      border_color = beautiful.border_focus,
                      size_hints_honor = true,

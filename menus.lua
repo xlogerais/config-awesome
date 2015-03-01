@@ -9,12 +9,12 @@ menu_web = {
 }
 
 menu_mail = {
-   { "Mutt", terminal .. " -name mutt -geometry 105x40 -e mutt" },
+   { "Mutt", terminal .. " -name mutt -geometry 120x40 -e mutt" },
    { "Thunderbird", "thunderbird" },
 }
 menu_communication = {
-   { "finch", terminal .. " -name finch -geometry 105x40 -e finch" },
-   { "irssi", terminal .. " -name irssi -geometry 105x40 -e irssi" },
+   { "finch", terminal .. " -name finch -geometry 120x40 -e finch" },
+   { "irssi", terminal .. " -name irssi -geometry 120x40 -e irssi" },
    { "", nil },
    { "Pidgin", "pidgin" },
    { "aMSN", "amsn" },
@@ -27,20 +27,20 @@ menu_office = {
 }
 
 menu_audio = {
-   { "mpd", terminal .. " -name ncmpc -geometry 105x40 -e ncmpc" },
+   { "mpd", terminal .. " -name ncmpc -geometry 120x40 -e ncmpc" },
    { "  mpd  play", "mpc toggle" },
    { "  mpd stop", "mpc stop" },
    { "  mpd next", "mpc next" },
    { "  mpd prev", "mpc prev" },
    {"", nil },
-   { "mocp", terminal .. " -name mocp -geometry 105x40 -e mocp" },
+   { "mocp", terminal .. " -name mocp -geometry 120x40 -e mocp" },
    { "  moc play", "mocp -p" },
    { "  moc stop", "mocp -s" },
    { "  moc next", "mocp -f" },
    { "  moc prev", "mocp -r" },
    {"", nil },
    { "mute/unmute", "amixer -q set Master toggle" },
-   { "set volume", terminal .. " -name alsamixer -geometry 210x40 -e alsamixer" },
+   { "set volume", terminal .. " -name alsamixer -geometry 120x40 -e alsamixer" },
 }
 
 menu_video = {
@@ -129,14 +129,14 @@ awful.menu.new(
     { "Web", browser },
     { "Mails", mailer },
     { "Pidgin", messenger },
-    { "Irssi", terminal .. " -name irssi -geometry 105x40 -e irssi" },
+    { "Irssi", terminal .. " -name irssi -geometry 120x40 -e irssi" },
     { "", nil },
     { "Calendrier", calendar },
     { "Calculatrice", calculator },
     { "", nil },
     { "Fichiers", filebrowser },
     { "", nil },
-    { "Volume", terminal .. " -name alsamixer -geometry 210x40 -e alsamixer" },
+    { "Volume", terminal .. " -name alsamixer -geometry 120x40 -e alsamixer" },
     { "", nil },
     { "Bureautique", menu_office },
     { "Web", menu_web },
