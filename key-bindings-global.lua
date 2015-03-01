@@ -1,32 +1,33 @@
 globalkeys = awful.util.table.join(
+
     -- Window manager
     awful.key({ modkey, "Control"  }, "r", awesome.restart),
     awful.key({ modkey, "Shift"    }, "q", awesome.quit),
 
     -- Screen Manipulation
-    awful.key({ modkey, "Control"  }, "j",        function () awful.screen.focus_relative( 1) end),
-    awful.key({ modkey, "Control"  }, "k",        function () awful.screen.focus_relative(-1) end),
-    awful.key({ modkey,            }, "less",     function () awful.screen.focus_relative( 1) end),
-    awful.key({ modkey,            }, "greater",  function () awful.screen.focus_relative(-1) end),
-    awful.key({ modkey,            }, "F1",       function () awful.screen.focus(1)           end),
-    awful.key({ modkey,            }, "F2",       function () awful.screen.focus(2)           end),
+    awful.key({ modkey, "Control"  }, "j",       function () awful.screen.focus_relative( 1) end),
+    awful.key({ modkey, "Control"  }, "k",       function () awful.screen.focus_relative(-1) end),
+    awful.key({ modkey,            }, "less",    function () awful.screen.focus_relative( 1) end),
+    awful.key({ modkey,            }, "greater", function () awful.screen.focus_relative(-1) end),
+    awful.key({ modkey,            }, "F1",      function () awful.screen.focus(1)           end),
+    awful.key({ modkey,            }, "F2",      function () awful.screen.focus(2)           end),
 
     -- Statusbar manipulation
-    awful.key({ "Control", "Shift" }, "t",                    function () mytopbar[mouse.screen].visible = not mytopbar[mouse.screen].visible end),
-    awful.key({ "Control", "Shift" }, "b",                    function () mybottombar[mouse.screen].visible = not mybottombar[mouse.screen].visible end),
-    awful.key({ "Control", "Shift" }, "l",                    function () myleftbar[mouse.screen].visible = not myleftbar[mouse.screen].visible end),
-    awful.key({ "Control", "Shift" }, "r",                    function () myrightbar[mouse.screen].visible = not myrightbar[mouse.screen].visible end),
+    awful.key({ "Control", "Shift" }, "t",       function () wibox_top[mouse.screen].visible = not wibox_top[mouse.screen].visible end),
+    awful.key({ "Control", "Shift" }, "b",       function () wibox_bottom[mouse.screen].visible = not wibox_bottom[mouse.screen].visible end),
+    awful.key({ "Control", "Shift" }, "l",       function () wibox_left[mouse.screen].visible = not wibox_left[mouse.screen].visible end),
+    awful.key({ "Control", "Shift" }, "r",       function () wibox_right[mouse.screen].visible = not wibox_right[mouse.screen].visible end),
 
     -- Layouts
-    awful.key({ modkey,            }, "space",    function () awful.layout.inc(layouts,  1) end),
-    awful.key({ modkey, "Shift"    }, "space",    function () awful.layout.inc(layouts, -1) end),
+    awful.key({ modkey,            }, "space",   function () awful.layout.inc(layouts,  1) end),
+    awful.key({ modkey, "Shift"    }, "space",   function () awful.layout.inc(layouts, -1) end),
 
-    awful.key({ modkey,            }, "l", function () awful.tag.incmwfact( 0.05)   end),
-    awful.key({ modkey,            }, "h", function () awful.tag.incmwfact(-0.05)   end),
-    awful.key({ modkey, "Shift"    }, "h", function () awful.tag.incnmaster( 1)     end),
-    awful.key({ modkey, "Shift"    }, "l", function () awful.tag.incnmaster(-1)     end),
-    awful.key({ modkey, "Control"  }, "h", function () awful.tag.incncol( 1)        end),
-    awful.key({ modkey, "Control"  }, "l", function () awful.tag.incncol(-1)        end),
+    awful.key({ modkey,            }, "l",       function () awful.tag.incmwfact( 0.05)   end),
+    awful.key({ modkey,            }, "h",       function () awful.tag.incmwfact(-0.05)   end),
+    awful.key({ modkey, "Shift"    }, "h",       function () awful.tag.incnmaster( 1)     end),
+    awful.key({ modkey, "Shift"    }, "l",       function () awful.tag.incnmaster(-1)     end),
+    awful.key({ modkey, "Control"  }, "h",       function () awful.tag.incncol( 1)        end),
+    awful.key({ modkey, "Control"  }, "l",       function () awful.tag.incncol(-1)        end),
 
     -- Clients
 
@@ -144,5 +145,5 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey,            }, "e", revelation),
 
     -- Dropdown Term
-    awful.key({ "Control"          }, "twosuperior", function () teardrop.toggle(terminal .. " -name dropdown","bottom","center",0.80,0.25,true) end)
+    awful.key({ "Control"          }, "twosuperior", function () teardrop(terminal .. " -name dropdown","center","center",0.5,0.5,true) end)
 )

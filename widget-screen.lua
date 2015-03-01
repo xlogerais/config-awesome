@@ -26,6 +26,4 @@ myscreenbox_tooltip = awful.tooltip({ myscreenbox, timer_function = function() r
 
 
 -- Timer --
-awful.hooks.timer.register(10, function()
-     screenInfo()
- end)
+awful.hooks.timer.register(10, function() screenInfo() end)

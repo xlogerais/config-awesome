@@ -152,10 +152,5 @@ awful.menu.new(
     { "", nil },
     { "Vérouiller", screenlocker },
   },
-  theme = 
-  {
-    width  = beautiful.menu_width,
-    height = beautiful.menu_height,
-  }
 })
 

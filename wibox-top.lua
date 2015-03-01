@@ -11,11 +11,16 @@ for s = 1, screen.count() do
 
     -- Widgets that are aligned to the right
     local right_layout = wibox.layout.fixed.horizontal()
+    right_layout:add(myspacer)
+    right_layout:add(notes_widget)
+    right_layout:add(myspacer)
+    right_layout:add(todo_widget_perso)
+    right_layout:add(myspacer)
+    right_layout:add(todo_widget_pro)
+    right_layout:add(myspacer)
+    right_layout:add(dateclock_widget)
     --right_layout:add(myspacer)
-    --right_layout:add(mybatterywidget)
-    --right_layout:add(myspacer)
-    right_layout:add(myclockbox)
-    --right_layout:add(mytextclock)
+    --right_layout:add(date_text_widget)
 
     -- Now bring it all together (with the tasklist in the middle)
     local layout = wibox.layout.align.horizontal()

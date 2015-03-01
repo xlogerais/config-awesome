@@ -3,9 +3,9 @@
 local naughty_settings =
 { screen = screen.count() ,
   position = "top_right",
-  height = 48,
-  width = 300,
-  opacity = 0.75,
+  --height = 128,
+  --width = 800,
+  opacity = 0.50,
   timeout = 15,
   fg = beautiful.fg_normal or "#999999AA",
   bg = beautiful.bg_normal or "#000000AA",

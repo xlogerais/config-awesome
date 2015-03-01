@@ -7,12 +7,14 @@ date_text_widget = wibox.widget.textbox()
 cpu_text_widget  = wibox.widget.textbox()
 mem_text_widget  = wibox.widget.textbox()
 vol_text_widget  = wibox.widget.textbox()
+bat_text_widget  = wibox.widget.textbox()
 
 -- Register widgets
-vicious.register(date_text_widget, vicious.widgets.date, " %b %d, %R ", 30)
-vicious.register(cpu_text_widget,  vicious.widgets.cpu,  " Processeur : $1% " , 2)
-vicious.register(mem_text_widget,  vicious.widgets.mem,  " Mémoire : $1% ($2MB/$3MB) ", 2)
-vicious.register(vol_text_widget,  vicious.widgets.volume,  " Volume : $1% ", 2 , "PCM")
+vicious.register(date_text_widget, vicious.widgets.date,   " <b> %A %d %B %H:%M </b> ", 10)
+vicious.register(cpu_text_widget,  vicious.widgets.cpu,    " Processeur : $1% " , 2)
+vicious.register(mem_text_widget,  vicious.widgets.mem,    " Mémoire : $1% ($2MB/$3MB) ", 2)
+vicious.register(vol_text_widget,  vicious.widgets.volume, " Volume : $1% ", 2 , "Master")
+vicious.register(bat_text_widget,  vicious.widgets.bat,    " Batterie : $2% ($3 restant) [$1] [$4] ", 2 , "BAT0")
 
 --
 -- Graph widgets
@@ -49,20 +51,20 @@ vol_progressbar_widget:set_background_color(beautiful.bg_normal)
 vol_progressbar_widget:set_color(vertical_gradient_green_to_red)
 
 bat_progressbar_widget:set_width(8)
-bat_progressbar_widget:set_height(8)
+--bat_progressbar_widget:set_height(8)
 bat_progressbar_widget:set_vertical(true)
 bat_progressbar_widget:set_border_color(beautiful.border_normal)
 bat_progressbar_widget:set_background_color(beautiful.bg_normal)
 bat_progressbar_widget:set_color(vertical_gradient_green_to_red)
 
 cpu_graph_widget = awful.widget.graph()
-cpu_graph_widget:set_width(50)
+cpu_graph_widget:set_width(64)
 cpu_graph_widget:set_border_color(beautiful.border_normal)
 cpu_graph_widget:set_background_color(beautiful.bg_normal)
 cpu_graph_widget:set_color(vertical_gradient_green_to_red)
 
 mem_graph_widget = awful.widget.graph()
-mem_graph_widget:set_width(50)
+mem_graph_widget:set_width(64)
 mem_graph_widget:set_border_color(beautiful.border_normal)
 mem_graph_widget:set_background_color(beautiful.bg_normal)
 mem_graph_widget:set_color(vertical_gradient_green_to_red)
@@ -70,8 +72,8 @@ mem_graph_widget:set_color(vertical_gradient_green_to_red)
 -- Register widgets
 vicious.register(cpu_progressbar_widget, vicious.widgets.cpu,    "$1" , 1 )
 vicious.register(mem_progressbar_widget, vicious.widgets.mem,    "$1" , 1 )
-vicious.register(vol_progressbar_widget, vicious.widgets.volume, "$1" , 2 , "PCM")
-vicious.register(bat_progressbar_widget, vicious.widgets.bat,    "$1" , 30, "BAT0")
+vicious.register(vol_progressbar_widget, vicious.widgets.volume, "$1" , 2 , "Master")
+vicious.register(bat_progressbar_widget, vicious.widgets.bat,    "$2" , 5, "BAT0")
 
 vicious.register(cpu_graph_widget, vicious.widgets.cpu, "$1", 1)
 vicious.register(mem_graph_widget, vicious.widgets.mem, "$1", 1)

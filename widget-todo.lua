@@ -1,48 +1,85 @@
--- Custom
-mytodofile = os.getenv("HOME") .. "/.todo"
+--
+-- Create functions to manage a todo list
+--
 
--- Create a textbox widget for the todolist
-mytodobox = widget({ type = "textbox", align = "left" })
-mytodobox.text = "Tâches"
-mytodobox.fg = beautiful.fg_normal
+function todo_list_parse(file)
+  local flist = io.open(file)
+  local list = flist:read('*a')
 
--- Create functions to display the todo list
-    local todolist = nil
+  list = string.gsub(list, '(%s-)%*%s(.-)\n', '%1 &#8226; <span color="black"><i>%2</i></span>\n')
+  list = string.gsub(list, '(%s-)%-%s(.-)\n', '%1 &#8226; <span color="black"><i>%2</i></span>\n')
+  list = string.gsub(list, '(%s-)!%s(.-)\n',  '%1 &#8226; <span color="orange"><i>%2</i></span>\n')
+  list = string.gsub(list, '(%s-)%#%s(.-)\n', '%1 &#8226; <span color="gray" strikethrough="true"><i>%2</i></span>\n')
+  return list
+end
 
-    function add_todolist()
-        local flist = io.open(mytodofile)
-        local list = flist:read('*a')
+function todo_list_display(title,list,popup)
 
-        list = string.gsub(list, '(%s-)!%s(.-)\n',  '%1 &#8226; <span color="orange"><i>%2</i></span>\n')
-        list = string.gsub(list, '(%s-)%*%s(.-)\n', '%1 &#8226; <span color="green"><i>%2</i></span>\n')
-        list = string.gsub(list, '(%s-)%-%s(.-)\n', '%1 &#8226; <span color="black"><i>%2</i></span>\n')
-        list = string.gsub(list, '(%s-)%#%s(.-)\n', '%1 &#8226; <span color="gray" strikethrough="true"><i>%2</i></span>\n')
+  popup = naughty.notify({
+    --position = "top_left",
+    --width = 550,
+    --height = 800,
+    bg = '#FFFFFF',
+    fg = '#000000',
+    opacity = 1,
+    timeout = 0,
+    hover_timeout = 1,
+    title = title,
+    text = "<br>"..list,
+  })
 
-        remove_todolist()
-        todolist = naughty.notify({
-            position = "bottom_right",
-            width = 550,
-            height = 800,
-            timeout = 0,
-            hover_timeout = 0.5,
-            title = "<big>Tâches</big>",
-            text = "<br>"..list,
-        })
+  return popup
+end
 
-    end
+function hide_todo_list(popup)
+  if popup ~= nil then
+    naughty.destroy(popup)
+    popup = nil
+  end
+end
 
-    function remove_todolist()
-        if todolist ~= nil then
-            naughty.destroy(todolist)
-            todolist = nil
-            offset = 0
-        end
-    end
+function todo_list_edit(file)
+  hide_todo_list()
+  awful.util.spawn(editor .. file)
+end
 
--- Add signals to widget
-    mytodobox:add_signal("mouse::enter", add_todolist)
-    mytodobox:add_signal("mouse::leave", remove_todolist)
-    mytodobox:buttons(awful.util.table.join(awful.button({ }, 1, function()
-                                                                   remove_todolist()
-                                                                   awful.util.spawn(editor .. mytodofile)
-                                                                 end)))
+function todo_list_widget(name,file)
+
+  local title = name
+  local list = todo_list_parse(file)
+
+  -- Create a textbox widget for the todolist
+  local widget = wibox.widget.textbox(title)
+  -- Add a tooltip
+  --widget_tooltip = awful.tooltip({objects = {widget}})
+  --widget_tooltip:set_text(title)
+
+  -- Add signals to widget
+  widget:connect_signal("mouse::enter", function()
+    list = todo_list_parse(file)
+    popup = todo_list_display(title,list)
+  end)
+
+  widget:connect_signal("mouse::leave", function()
+    hide_todo_list(popup)
+  end)
+
+  widget:buttons(awful.util.table.join(
+    awful.button({ }, 1,
+      function()
+        hide_todo_list(popup)
+        todo_list_edit(file)
+      end
+    )
+  ))
+
+  return widget,popup
+
+end
+
+--
+-- Widgets
+--
+notes_widget, notes_popup = todo_list_widget("Notes perso", os.getenv("HOME") .. "/.notes")
+todo_widget_perso, todo_popup_perso = todo_list_widget("Tâches perso", os.getenv("HOME") .. "/.todo-perso")
+todo_widget_pro, todo_popup_pro = todo_list_widget("Tâches pro", os.getenv("HOME") .. "/.todo-pro")

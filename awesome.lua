@@ -32,7 +32,9 @@ require("settings-naughty")
 
 -- Vicious
 vicious = require("vicious")
-require("settings-vicious")
+
+-- Dropdown terminal
+teardrop = require("teardrop")
 
 -- Default modkey.
 altkey = "Mod1"
@@ -61,13 +63,15 @@ require("menus")
 require("widget-layoutbox")
 require("widget-taglist")
 require("widget-tasklist")
-require("widget-promptbox")
+require("widget-dateclock")
+
 require("widget-menulauncher")
-require("widget-systray")
+require("widget-promptbox")
 require("widget-spacer")
-require("widget-clock")
+require("widget-systray")
+
 --require("widget-battery")
---require("widget-todo")
+require("widget-todo")
 --require("widget-remind")
 --require("widget-screen")
 --require("widget-kblayout")
@@ -77,6 +81,7 @@ require("widget-clock")
 require("wibox-top")
 require("wibox-bottom")
 --require("wibox-left")
+--require("wibox-right")
 
 -- }}}
 
@@ -121,9 +126,5 @@ require("signals")
 
 -- }}}
 
--- Dropdown terminal
-require("teardrop")
-
 -- Revelation library
-require("revelation")
-
+revelation = require("revelation")

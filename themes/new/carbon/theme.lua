@@ -13,7 +13,7 @@ theme.wallpaper = theme.path .. "/background.png"
 -- }}}
 
 -- {{{ Styles
-theme.font      = "DejaVu Sans 8"
+theme.font      = "DejaVu Sans 16"
 
 -- {{{ Colors
 theme.fg_normal     = "#aaaaaa"
@@ -37,8 +37,8 @@ theme.border_marked = "#91231c"
 -- }}}
 
 -- {{{ Titlebars
-theme.titlebar_bg_focus  = "#3F3F3F"
-theme.titlebar_bg_normal = "#3F3F3F"
+theme.titlebar_bg_focus  = "#3F3F3FFF"
+theme.titlebar_bg_normal = "#3F3F3F66"
 -- }}}
 
 -- There are other variable sets
@@ -58,7 +58,7 @@ theme.titlebar_bg_normal = "#3F3F3F"
 --theme.fg_widget        = "#AECF96"
 --theme.fg_center_widget = "#88A175"
 --theme.fg_end_widget    = "#FF5656"
---theme.bg_widget        = "#494B4F"
+--theme.bg_widget        = "#000000"
 --theme.border_widget    = "#3F3F3F"
 -- }}}
 
@@ -71,7 +71,7 @@ theme.mouse_finder_color = "#CC9393"
 -- Variables set for theming the menu:
 -- menu_[bg|fg]_[normal|focus]
 -- menu_[border_color|border_width]
-theme.menu_height = 15
+theme.menu_height = 24
 theme.menu_width  = 300
 -- }}}
 

@@ -35,11 +35,11 @@ awful.rules.rules =
     { rule = { class = "URxvt", instance = "urxvt" }, properties = { tag = tags[1][1] , switchtotag = true }, callback = awful.client.setslave },
 
     -- Specific terminals
-    { rule = { instance = "dropdown"     }, properties = { floating = true , sticky = true } },
+    --{ rule = { instance = "dropdown"     }, properties = { floating = true , sticky = true } },
     { rule = { instance = "mutt"         }, properties = { tag = tags[1][3] , switchtotag = true } },
     { rule = { instance = "mocp"         }, properties = { tag = tags[1][6] , floating = true  , switchtotag = true } },
     { rule = { instance = "ncmpc"        }, properties = { tag = tags[1][6] , floating = true  , switchtotag = true } },
-    { rule = { instance = "alsamixer"    }, properties = { floating = true } },
+    { rule = { instance = "alsamixer"    }, properties = { tag = tags[1][6] , floating = true  , switchtotag = true } },
 
     -- Desktop tools
     { rule = { class    = "XNots"        }, properties = { floating = true } },

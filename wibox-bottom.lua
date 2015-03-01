@@ -1,7 +1,9 @@
 wibox_bottom = {}
+require("widgets-bottom")
+
 for s = 1, screen.count() do
     -- Create the wibox
-    wibox_bottom[s] = awful.wibox({ screen = s, position = "bottom", height = 20 })
+    wibox_bottom[s] = awful.wibox({ screen = s, position = "bottom" })
 
     -- Widgets that are aligned to the left
     local left_layout = wibox.layout.fixed.horizontal()
@@ -14,12 +16,14 @@ for s = 1, screen.count() do
 
 			right_layout:add(cpu_text_widget)
 			right_layout:add(cpu_progressbar_widget)
+			right_layout:add(horizontal_spacer)
 			right_layout:add(cpu_graph_widget)
 			
 			right_layout:add(myspacer)
 			
 			right_layout:add(mem_text_widget)
 			right_layout:add(mem_progressbar_widget)
+			right_layout:add(horizontal_spacer)
 			right_layout:add(mem_graph_widget)
 
 			right_layout:add(myspacer)
@@ -29,8 +33,10 @@ for s = 1, screen.count() do
 
 			right_layout:add(myspacer)
 
-			--right_layout:add(bat_progressbar_widget)
-			--right_layout:add(mybatterywidget)
+			right_layout:add(bat_text_widget)
+			right_layout:add(bat_progressbar_widget)
+
+			right_layout:add(myspacer)
 
 			right_layout:add(mysystray)
 	end
