@@ -80,6 +80,5 @@ end
 --
 -- Widgets
 --
-notes_widget, notes_popup = todo_list_widget("Notes perso", os.getenv("HOME") .. "/.notes")
-todo_widget_perso, todo_popup_perso = todo_list_widget("Tâches perso", os.getenv("HOME") .. "/.todo-perso")
-todo_widget_pro, todo_popup_pro = todo_list_widget("Tâches pro", os.getenv("HOME") .. "/.todo-pro")
+notes_widget,notes_popup = todo_list_widget("Notes", os.getenv("HOME") .. "/.notes")
+todo_widget,todo_popup   = todo_list_widget("Tâches", os.getenv("HOME") .. "/.todo")
