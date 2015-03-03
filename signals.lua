@@ -75,6 +75,9 @@ client.connect_signal("manage", function (c, startup)
     if c.maximized then c.maximized = false end
   end)
 
+  -- Ensure to place maximized clients on top
+  c:connect_signal("property::maximized", function(c) c.above = true end)
+
   -- Enable sloppy focus
   c:connect_signal("mouse::enter", function(c)
     if awful.layout.get(c.screen) ~= awful.layout.suit.magnifier
@@ -83,24 +86,26 @@ client.connect_signal("manage", function (c, startup)
     end
   end)
 
+
 end)
 
 -- Arrange signal handler
 
 for s = 1, screen.count() do screen[s]:connect_signal("arrange", function ()
+
   local clients = awful.client.visible(s)
   local layout = awful.layout.getname(awful.layout.get(s))
 
   for _, c in pairs(clients) do -- Floaters are always on top
     if awful.client.floating.get(c) or layout == "floating"
-      then if not c.fullscreen then c.above =  true  end
-    else                          c.above   =  false end
+      then if not c.fullscreen then c.above = true  end
+    else                            c.above = false end
   end
 
   for _, c in pairs(clients) do -- Maximized are always on top
     if awful.client.property.get(c,maximized)
-      then if not c.fullscreen then c.above =  true  end
-    else                          c.above   =  false end
+      then if not c.fullscreen then c.above = true  end
+    else                            c.above = false end
   end
 
 end)

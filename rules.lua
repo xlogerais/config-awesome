@@ -83,6 +83,6 @@ awful.rules.rules =
     { rule = { class    = "Virt-manager"                  }, properties = { tag = tags[screen.count()][8] , switchtotag = true  , floating = true } },
 
     -- Test unagi
-    { rule = { class = "URxvt" }, properties = { opacity = 0.8 } },
+    -- { rule = { class = "URxvt" }, properties = { opacity = 0.8 } },
 
 }
