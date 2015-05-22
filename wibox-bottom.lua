@@ -38,10 +38,14 @@ for s = 1, screen.count() do
 
 			right_layout:add(myspacer)
 
+			right_layout:add(kbdcfg.widget)
+
+			right_layout:add(myspacer)
+
 			right_layout:add(mysystray)
 	end
 
-    -- Now bring it all together (with the tasklist in the middle)
+    -- Now bring it all together
     local layout = wibox.layout.align.horizontal()
     layout:set_left(left_layout)
     layout:set_right(right_layout)

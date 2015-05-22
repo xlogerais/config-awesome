@@ -33,6 +33,9 @@ require("settings-naughty")
 -- Vicious
 vicious = require("vicious")
 
+-- Revelation library
+revelation = require("revelation")
+
 -- Dropdown terminal
 teardrop = require("teardrop")
 
@@ -63,8 +66,8 @@ require("menus")
 require("widget-layoutbox")
 require("widget-taglist")
 require("widget-tasklist")
-require("widget-dateclock")
 
+require("widget-dateclock")
 require("widget-menulauncher")
 require("widget-promptbox")
 require("widget-spacer")
@@ -74,7 +77,7 @@ require("widget-systray")
 require("widget-todo")
 --require("widget-remind")
 --require("widget-screen")
---require("widget-kblayout")
+require("widget-kblayout")
 
 -- Wibox
 
@@ -125,6 +128,3 @@ require("rules")
 require("signals")
 
 -- }}}
-
--- Revelation library
-revelation = require("revelation")

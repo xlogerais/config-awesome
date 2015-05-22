@@ -13,7 +13,7 @@ theme.wallpaper = theme.path .. "/background.png"
 -- }}}
 
 -- {{{ Styles
-theme.font      = "DejaVu Sans 16"
+theme.font      = "DejaVu Sans 10"
 
 -- {{{ Colors
 theme.fg_normal     = "#aaaaaa"

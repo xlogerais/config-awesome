@@ -37,7 +37,7 @@ globalkeys = awful.util.table.join(
             -- If you want to always position the menu on the same place set coordinates
             awful.menu.menu_keys.down = { "Down", "Alt_L" }
             awful.menu.menu_keys.exec = { "Right", "Return" }
-            local cmenu = awful.menu.clients({width=400}, { keygrabber=true, coords={x=440, y=330} })
+            local cmenu = awful.menu.clients({width=500}, { keygrabber=true, coords={x=440, y=330} })
         end),
 
     -- client select

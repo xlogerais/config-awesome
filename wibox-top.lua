@@ -20,10 +20,9 @@ for s = 1, screen.count() do
     --right_layout:add(myspacer)
     --right_layout:add(date_text_widget)
 
-    -- Now bring it all together (with the tasklist in the middle)
+    -- Now bring it all together
     local layout = wibox.layout.align.horizontal()
     layout:set_left(left_layout)
-    --layout:set_middle(mytasklist[s])
     layout:set_right(right_layout)
 
     wibox_top[s]:set_widget(layout)
