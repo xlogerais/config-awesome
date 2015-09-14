@@ -24,6 +24,7 @@ function todo_list_display(title,list,popup)
     opacity = 1,
     timeout = 0,
     hover_timeout = 1,
+    screen = mouse.screen,
     title = title,
     text = "<br>"..list,
   })
